@@ -1,0 +1,28 @@
+<div class="container mt-4">
+  <h2 class="mb-4">Catálogo de Coches</h2>
+  <div class="d-flex justify-content-end mb-3">
+    <button type="button" class="btn btn-success" (click)="agregarCoche()">
+      <i class="fas fa-plus"></i> Agregar Coche
+    </button>
+  </div>
+  <div class="row">
+    <div *ngFor="let coche of coches" class="col-md-4 mb-3">
+      <div class="card">
+        <!--<img [src]="'assets/coches/' + coche.imagen" class="card-img-top" alt="Imagen de {{ coche.marca }}">-->
+        <div class="card-body">
+          <h5 class="card-title">{{ coche.marca }}</h5>
+          <p class="card-text">{{ coche.modelo }} | {{ coche.matricula }}</p>
+          
+          <div class="d-flex justify-content-end">
+            <button type="button" class="btn btn-primary" (click)="modificarCoche(coche.id)">
+              <i class="fas fa-edit"></i> Modificar
+            </button>
+            <button type="button" class="btn btn-danger" style="margin-left: 10px;" (click)="confirmarEliminarCoche(coche.id)">
+              <i class="fas fa-trash-alt"></i> Eliminar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
